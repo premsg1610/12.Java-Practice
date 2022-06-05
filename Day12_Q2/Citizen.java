@@ -2,9 +2,9 @@ package com.Day12_Q2;
 
 public class Citizen {
 
-	String name;
-	String aadharNumber;
-	String mobileNumber;
+	private String name;
+	private String aadharNumber;
+	private String mobileNumber;
 	
 	
 	public String getName() {
