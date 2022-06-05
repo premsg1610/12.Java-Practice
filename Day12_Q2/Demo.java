@@ -7,7 +7,7 @@ public class Demo {
 
 	public boolean validate(String name, String mobileNum, String aadharCard) {
 		
-		boolean checkName = Pattern.matches("[a-z\\s]{3,8}",name);
+		boolean checkName = Pattern.matches("[a-zA-Z\\s]{3,8}",name);
 		boolean checkMobile = Pattern.matches("[6-9]{1}[0-9]{9}", mobileNum);
 		boolean checkAadhar = Pattern.matches("[1-9]{1}[0-9]{11}", aadharCard);
 		
@@ -15,9 +15,35 @@ public class Demo {
 		{
 			return true;
 		}
-		else {
+		else if(!checkName && !checkMobile && !checkAadhar) {
+			System.out.println("Citizen details are not valid, enter correct details.");
+		}
+		else if(!checkName && !checkMobile) {
+			System.out.println("Please enter a valid name containing 3 to 8 albhabets only and a valid Indian mobile number.");
 			return false;
 		}
+		else if(!checkName && !checkAadhar) {
+			System.out.println("Please enter a valid name containing 3 to 8 albhabets only and a valid aadhar number.");
+		}
+		else if(!checkMobile && !checkAadhar) {
+			System.out.println("Please enter a valid Indian mobile number and aadhar number.");
+			return false;
+		}
+		else if(!checkName) {
+			System.out.println("Please enter a valid name containing 3 to 8 alphabets only.");
+			return false;
+		}
+		else if(!checkMobile) {
+			System.out.println("Please enter a valid Indian mobile number.");
+			return false;
+		}
+		else if(!checkAadhar) {
+			System.out.println("Please enter a valid aadhar number.");
+			return false;
+		}
+		
+		return false;
+		
 	}
 	
 	
@@ -56,7 +82,7 @@ public class Demo {
 			System.out.println("Mobile number is: " + c1.getMobileNumber());
 		}
 		else {
-			System.out.println("Citizen details are not valid, enter correct details...");
+			System.out.println("Thank you...");
 		}
 		
 	}
